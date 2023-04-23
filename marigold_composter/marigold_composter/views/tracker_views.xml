@@ -1,0 +1,269 @@
+<odoo>
+  <data>
+
+    <record id="sales_view_order_form_inherit" model="ir.ui.view">
+        <field name="name">sale_order_form_inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="arch" type="xml">  
+          <xpath expr = "//sheet/notebook/page[@name='order_lines']" position="attributes">
+            <attribute name="invisible">True</attribute> 
+          </xpath>
+          <xpath expr = "//sheet/notebook/page[@name='other_information']" position="attributes">
+            <attribute name="invisible">True</attribute> 
+          </xpath>
+          <xpath expr = "//sheet/notebook/page[@name='customer_signature']" position="attributes">
+            <attribute name="invisible">True</attribute> 
+          </xpath>
+          <xpath expr = "//page[@name='optional_products']" position="attributes">
+            <attribute name="invisible">True</attribute> 
+          </xpath>
+          <xpath expr = "//sheet/group/group/field[@name='partner_id']" position="after">
+            <field name = "waste"/> 
+          </xpath>
+          <xpath expr = "//sheet/group/group/field[@name='waste']" position="after">
+            <field name = "compost"/> 
+          </xpath>
+
+  	      <xpath expr = "//sheet/group/group/field[@name='compost']" position="after">
+            <field name = "cocopeat"/> 
+          </xpath>
+
+          <xpath expr = "//sheet/group/group/field[@name='cocopeat']" position="after">
+            <field name = "Sieved_compost"/> 
+          </xpath>
+
+ 	        <xpath expr = "//sheet/group/group/field[@name='Sieved_compost']" position="after">
+            <field name = "staff"/> 
+          </xpath>
+          <xpath expr = "//sheet/group/group/field[@name='date_order']" position="after">
+            <field name = "start_time" widget="float_time"/> 
+          </xpath>
+          <xpath expr = "//sheet/group/group/field[@name='start_time']" position="after">
+            <field name = "end_time" widget="float_time"/> 
+          </xpath>
+          <xpath expr = "//sheet/group/group/field[@name='end_time']" position="after">
+            <field name = "temp_360_lit_1"/> 
+          </xpath>
+          <xpath expr = "//sheet/group/group/field[@name='temp_360_lit_1']" position="after">
+            <field name = "temp_360_lit_2"/> 
+          </xpath>
+          <xpath expr = "//sheet/group/group/field[@name='temp_360_lit_2']" position="after">
+            <field name = "temp_360_lit_3"/> 
+          </xpath>
+          <xpath expr = "//sheet/group/group[@name='order_details']" position="after">
+            <field name = "remarks" placeholder = "Remarks" nolabel="1" colspan="2"/> 
+          </xpath>
+          <xpath expr = "//sheet/group/group/field[@name='validity_date']" position="attributes">
+            <attribute name="invisible">True</attribute>
+          </xpath>
+          <xpath expr = "//field[@name='sale_order_template_id']" position="attributes">
+            <attribute name="invisible">True</attribute>
+          </xpath>
+          <xpath expr = "//sheet/group/group/field[@name='payment_term_id']" position="attributes">
+            <attribute name="invisible">True</attribute>
+          </xpath>
+          <xpath expr = "//sheet/group/group/div/field[@name='pricelist_id']" position="attributes">
+            <attribute name="invisible">True</attribute>
+          </xpath>
+          <xpath expr = "//header" position="attributes">
+            <attribute name="invisible">True</attribute>
+          </xpath>
+          <xpath expr = "//sheet/div[@name='button_box']" position="attributes">
+            <attribute name="invisible">True</attribute>
+          </xpath>
+          <xpath expr = "//div[hasclass('oe_chatter')]" position="attributes">
+            <attribute name="invisible">True</attribute>
+          </xpath>
+          <xpath expr = "//label[@for='date_order']" position="attributes">
+            <attribute name="string">Collection Date</attribute>
+          </xpath>
+
+        </field>
+    </record>
+
+    <record id="sale.menu_sale_quotations" model="ir.ui.menu">
+        <field name="name">Daily Tracker</field>
+    </record>
+
+    <record id="sale.sale_order_menu" model="ir.ui.menu">
+        <field name="name">Daily Tracker</field>
+    </record>
+
+    <record id="sale.sale_menu_root" model="ir.ui.menu">
+        <field name="name">Trackers</field>
+    </record>
+
+    <record id="sale.action_quotations_with_onboarding" model="ir.actions.act_window">
+        <field name="name">Daily Tracker</field>
+    </record>
+
+    <record id="view_order_tree_inherit" model="ir.ui.view">
+        <field name="name">sale_order_tree_inherit</field>
+        <field name="model">sale.order</field>
+        <field name="priority">2</field>
+        <field name="inherit_id" ref="sale.view_quotation_tree" />
+        <field name="arch" type="xml">
+          <xpath expr = "//tree/field[@name='create_date']" position="after">
+            <field name = "date_order" string = "Collection Date " optional="hide"/>             
+          </xpath>
+          <xpath expr = "//tree/field[@name='partner_id']" position="after">
+            <field name = "waste" />             
+          </xpath>
+		      <xpath expr = "//tree/field[@name='waste']" position="after">
+            <field name = "compost" />             
+          </xpath>
+		      <xpath expr = "//tree/field[@name='compost']" position="after">
+            <field name = "cocopeat"/>             
+          </xpath>
+		      <xpath expr = "//tree/field[@name='cocopeat']" position="after">
+            <field name = "Sieved_compost" />             
+          </xpath>
+		      <xpath expr = "//tree/field[@name='Sieved_compost']" position="after">
+            <field name = "staff" optional="hide"/>             
+          </xpath>
+		      <xpath expr = "//tree/field[@name='staff']" position="after">
+            <field name = "start_time" optional="hide"/>             
+          </xpath>
+          <xpath expr = "//tree/field[@name='start_time']" position="after">
+            <field name = "end_time" optional="hide"/>             
+          </xpath>
+		      <xpath expr = "//tree/field[@name='end_time']" position="after">
+            <field name = "temp_360_lit_1" optional="hide"/>             
+          </xpath>
+          <xpath expr = "//tree/field[@name='temp_360_lit_1']" position="after">
+            <field name = "temp_360_lit_2" optional="hide"/>             
+          </xpath>
+          <xpath expr = "//tree/field[@name='temp_360_lit_2']" position="after">
+            <field name = "temp_360_lit_3" optional="hide"/>             
+          </xpath>
+          <xpath expr="/tree" position="attributes">
+            <attribute name="create">true</attribute>
+          </xpath>
+        </field>
+    </record>    
+
+    <record id="view_sales_order_filter_inherit" model="ir.ui.view">
+        <field name="name">sale.order.list.select.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="priority" eval="15"/>
+        <field name="inherit_id" ref="sale.view_sales_order_filter" />
+        <field name="arch" type="xml">
+          <xpath expr = "//group/filter[@name='order_month']" position="attributes">
+            <attribute name="string">Collection Date</attribute>             
+          </xpath>
+        </field>
+    </record>
+
+    <record id="view_sale_order_graph_inherit" model="ir.ui.view">
+        <field name="name">sale.order.graph.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_sale_order_graph"/>
+        <field name="arch" type="xml">
+          <xpath expr = "//graph[@sample='1']" position="attributes">
+            <attribute name ="string">Trackers</attribute>             
+          </xpath>
+        </field>
+    </record>
+
+    <!-- <record id="view_search_inherit_quotation_inherit_filter" model="ir.ui.view">
+        <field name="name">sale.order.search.inherit.quotation_filter</field>
+        <field name="model">sale.order</field>
+        <field name="mode">primary</field>
+        <field name="inherit_id" ref="sale.sale_order_view_search_inherit_quotation"/>
+        <field name="arch" type="xml">
+          <xpath expr = "//filter[@name='my_quotation']" position="attributes">
+            <attribute name="string">My Trackers</attribute>             
+          </xpath>
+          <xpath expr = "//filter/filter[@name='draft']" position="attributes">
+            <attribute name="string">Trackers</attribute>             
+          </xpath>
+        </field>
+    </record> -->
+
+    <!-- <record id="sale.menu_sale_invoicing" model="ir.ui.menu">
+        <field name="To Invoice">Invisible</field>
+    </record> -->
+
+    <!-- <record id="sale.product_menu_catalog" model="ir.ui.menu">
+        <field name="name">Invisible</field>
+    </record> -->
+
+    <!-- <record id="sale.menu_sale_report" model="ir.ui.menu">
+        <field name="name">Invisible</field>
+    </record> -->
+
+    <!-- <record id="sale.menu_sale_config" model="ir.ui.menu">
+        <field name="name">Invisible</field>
+    </record>    -->
+
+    
+
+    <!-- <delete id = "sale.sale_order_menu" model="ir.ui.view"/> -->
+    <!-- <record id="custom_module.sale_order_menu" model="ir.ui.view">
+        <field name="name">sale_order_menu_inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.menu_sale_quotations" />
+        <field name="arch" type="xml"/>
+        <field name = "name">Daily Tracker</field>
+    </record> -->
+
+    
+    <!-- explicit list view definition -->
+    <!--
+    <record model="ir.ui.view" id="my_module.list">
+      <field name="name">my_module list</field>
+      <field name="model">my_module.my_module</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+    -->
+
+    <!-- actions opening views on models -->
+    <!--
+    <record model="ir.actions.act_window" id="my_module.action_window">
+      <field name="name">my_module window</field>
+      <field name="res_model">my_module.my_module</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    -->
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="my_module.action_server">
+      <field name="name">my_module server</field>
+      <field name="model_id" ref="model_my_module_my_module"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+    <!--
+    <menuitem name="my_module" id="my_module.menu_root"/>
+    -->
+    <!-- menu categories -->
+    <!--
+    <menuitem name="Menu 1" id="my_module.menu_1" parent="my_module.menu_root"/>
+    <menuitem name="Menu 2" id="my_module.menu_2" parent="my_module.menu_root"/>
+    -->
+    <!-- actions -->
+    <!--
+    <menuitem name="List" id="my_module.menu_1_list" parent="my_module.menu_1"
+              action="my_module.action_window"/>
+    <menuitem name="Server to list" id="my_module" parent="my_module.menu_2"
+              action="my_module.action_server"/>
+    -->
+  </data>
+</odoo>
