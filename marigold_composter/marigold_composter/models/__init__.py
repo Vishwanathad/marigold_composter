@@ -1,3 +1,3 @@
 # -*- coding: utf-8 -*-
 
-from . import models,res_partner,sale_orders
+from . import contacts, models,trackers

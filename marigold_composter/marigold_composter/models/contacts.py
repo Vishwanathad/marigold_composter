@@ -7,6 +7,6 @@ from odoo import api, fields, models,time
 class Partner(models.Model):
     _inherit = 'res.partner'
     
-    # no_homes = fields.Integer(string="No of Homes")
+    no_homes = fields.Integer(string="No of Homes")
 
     
