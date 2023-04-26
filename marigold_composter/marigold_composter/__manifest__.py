@@ -3,15 +3,14 @@
     'name': "Marigold Composter",
 
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+        Hassle-free composting for a better tomorrow""",
 
     'description': """
-        Long description of module's purpose
+        We work towards a cleaner and greener future by providing effective, affordable and sustainable waste solutions.
     """,
 
     'author': "Marigold",
-    'website': "http://www.yourcompany.com",
+    'website': "http://marigoldcomposters.com/",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/master/odoo/addons/base/module/module_data.xml
@@ -27,8 +26,13 @@
         'security/ir.model.access.csv',
         'views/contacts_views.xml',
         'views/tracker_views.xml',
-        'views/templates.xml',
+        'views/snippets.xml',
     ],
+    'assets': { 
+        'web.assets_frontend': [
+            'marigold_composter/static/js/snippets.js'
+        ]},
+    
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',

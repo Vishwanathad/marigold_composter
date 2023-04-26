@@ -1,0 +1,38 @@
+<odoo>
+    <data>
+        <template name="Marigold" id="marigold_numbers">
+            <section class="marigold_numbers o_cc o_cc2 pt24 pb24">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-2 text-center pt24 pb24 offset-lg-1">
+                            <span id = "span_no_of_homes_count" class="s_number display-5">0</span>
+                            <h5>No of House</h5>
+                        </div>
+                        <div class="col-lg-2 text-center pt24 pb24">
+                            <span id = "span_collected_waste_count" class="s_number display-5">0</span>
+                            <h5>Collected Waste</h5>
+                        </div>
+                        <div class="col-lg-2 text-center pt24 pb24">
+                            <span id = "span_proceesed_compost_count" class="s_number display-5">0</span>
+                            <h5>Compost</h5>
+                        </div>
+                        <div class="col-lg-2 text-center pt24 pb24">
+                            <span id = "span_proceesed_cocopeat_count" class="s_number display-5">0</span>
+                            <h5>Processed Cocopeat</h5>
+                        </div>
+                        <div class="col-lg-2 text-center pt24 pb24">
+                            <span id = "span_sieved_compost_count" class="s_number display-5">0</span>
+                            <h5>Sieved Compost</h5>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </template>
+
+        <template id="external_snippets" inherit_id="website.snippets" priority="8">
+            <xpath expr="//div[@id='snippet_effect']//t[@t-snippet][last()]" position="after">
+                <t t-snippet="marigold_composter.marigold_numbers"/>
+            </xpath>
+        </template>   
+    </data>
+</odoo>

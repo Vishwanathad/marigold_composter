@@ -2,7 +2,7 @@
   <data>
 
     <record id="sales_view_order_form_inherit" model="ir.ui.view">
-        <field name="name">sale_order_form_inherit</field>
+        <field name="name">sale.order.form.inherit</field>
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_order_form" />
         <field name="arch" type="xml">  
@@ -30,10 +30,10 @@
           </xpath>
 
           <xpath expr = "//sheet/group/group/field[@name='cocopeat']" position="after">
-            <field name = "Sieved_compost"/> 
+            <field name = "sieved_compost"/> 
           </xpath>
 
- 	        <xpath expr = "//sheet/group/group/field[@name='Sieved_compost']" position="after">
+ 	        <xpath expr = "//sheet/group/group/field[@name='sieved_compost']" position="after">
             <field name = "staff"/> 
           </xpath>
           <xpath expr = "//sheet/group/group/field[@name='date_order']" position="after">
@@ -117,9 +117,9 @@
             <field name = "cocopeat"/>             
           </xpath>
 		      <xpath expr = "//tree/field[@name='cocopeat']" position="after">
-            <field name = "Sieved_compost" />             
+            <field name = "sieved_compost" />             
           </xpath>
-		      <xpath expr = "//tree/field[@name='Sieved_compost']" position="after">
+		      <xpath expr = "//tree/field[@name='sieved_compost']" position="after">
             <field name = "staff" optional="hide"/>             
           </xpath>
 		      <xpath expr = "//tree/field[@name='staff']" position="after">
@@ -166,10 +166,50 @@
         </field>
     </record>
 
-        <!-- <record id="sale.menu_sale_order" model="ir.ui.menu">
-        <field name="invisible">true</field>
-    </record> -->
+    <delete model="ir.ui.menu" id="sale.menu_sale_report" />
 
+    <delete model="ir.ui.menu" id="sale.product_menu_catalog"/>
+
+    <delete model="ir.ui.menu" id="sale.menu_sale_invoicing" />
+
+    <delete model="ir.ui.menu" id="sale.menu_sale_config" />
+
+    <delete model="ir.ui.menu" id="sale.menu_sale_order" />
+
+    <delete model="ir.ui.menu" id="sale.report_sales_team" />
+
+    <delete model="ir.ui.menu" id="sale.menu_sale_order_upselling" />
+
+    <delete model="ir.ui.menu" id="sale.menu_sale_order_invoice" /> 
+
+    <delete model="ir.ui.menu" id="sale.res_partner_menu" />
+
+    <delete model="ir.ui.menu" id="sale.sale_menu_config_activity_type" />
+
+    <delete model="ir.ui.menu" id="sale.menu_product_template_action" />
+
+    <delete model="ir.ui.menu" id="sale.menu_products" />
+
+    <delete model="ir.ui.menu" id="sale.menu_product_pricelist_main" />
+
+    <delete model="ir.ui.menu" id="sale.menu_sale_general_settings" />
+
+    <delete model="ir.ui.menu" id="sale.sales_team_config" /> 
+
+    <delete model="ir.ui.menu" id="sale.menu_sales_config" />
+
+    <delete model="ir.ui.menu" id="sale.menu_tag_config" />
+
+    <delete model="ir.ui.menu" id="sale.prod_config_main"/>
+
+    <delete model="ir.ui.menu" id="sale.menu_product_attribute_action"/>
+
+    <delete model="ir.ui.menu" id="sale.next_id_16" />
+
+    <delete model="ir.ui.menu" id="sale.menu_product_uom_form_action"/>
+
+    <delete model="ir.ui.menu" id="sale.menu_product_uom_categ_form_action"/>
+    
     <!-- <record id="view_search_inherit_quotation_inherit_filter" model="ir.ui.view">
         <field name="name">sale.order.search.inherit.quotation_filter</field>
         <field name="model">sale.order</field>
@@ -185,25 +225,6 @@
         </field>
     </record> -->
 
-    <!-- <record id="sale.menu_sale_invoicing" model="ir.ui.menu">
-        <field name="To Invoice">Invisible</field>
-    </record> -->
-
-    <!-- <record id="sale.product_menu_catalog" model="ir.ui.menu">
-        <field name="name">Invisible</field>
-    </record> -->
-
-    <!-- <record id="sale.menu_sale_report" model="ir.ui.menu">
-        <field name="name">Invisible</field>
-    </record> -->
-
-    <!-- <record id="sale.menu_sale_config" model="ir.ui.menu">
-        <field name="name">Invisible</field>
-    </record>    -->
-
-    
-
-    <!-- <delete id = "sale.sale_order_menu" model="ir.ui.view"/> -->
     <!-- <record id="custom_module.sale_order_menu" model="ir.ui.view">
         <field name="name">sale_order_menu_inherit</field>
         <field name="model">sale.order</field>
