@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
+from decimal import Decimal
+import odoo
 from odoo import http
 from odoo.http import request
+import math
+from odoo.addons.website.controllers.main import Website
+
 
 class WebsiteSnippet(http.Controller):
     @http.route('/total_waste_count', auth="public", type="json")
@@ -21,13 +26,45 @@ class WebsiteSnippet(http.Controller):
       query = """SELECT SUM(no_homes) AS no_homes from res_partner where type = 'other';  """
       request.env.cr.execute(query)
       no_of_homes = request.env.cr.fetchall()[0][0]
+      if proceesed_cocopeat is None:
+          proceesed_cocopeat = 0
+      else:
+          proceesed_cocopeat = math.ceil(proceesed_cocopeat/1000)
+      if proceesed_compost is None:
+          proceesed_compost = 0
+      else:
+          proceesed_compost = math.ceil(proceesed_compost/1000)
+      if sieved_compost is None:
+          sieved_compost = 0
+      else:
+          sieved_compost = math.ceil(sieved_compost/1000)
       return   {
-        "collected_waste" : collected_waste,
+        "collected_waste" : math.ceil(collected_waste/1000),
         "proceesed_cocopeat" : proceesed_cocopeat,
         "proceesed_compost" : proceesed_compost,
         "sieved_compost" : sieved_compost,
-        "no_of_homes": no_of_homes
+        "no_of_homes": f'{Decimal(str(no_of_homes)):n}'
       }
+      
+class MarigoldRedirectAfterLoginController(Website):
+
+    # ------------------------------------------------------
+    # Login - overwrite of the web login so that regular users are redirected to the backend
+    # while portal users are redirected to the frontend by default
+    # ------------------------------------------------------
+
+    @http.route(website=True, auth="public", sitemap=False)
+    def web_login(self, redirect=None, *args, **kw):
+        response = super(Website, self).web_login(redirect=redirect, *args, **kw)
+        if not redirect and request.params['login_success']:
+            if request.env['res.users'].browse(request.uid).has_group('base.group_user'):
+                module_name, menu_xml_id = "marigold_composter", "sale_menu_root"
+                menu_id = request.env.ref('sale.sale_menu_root')
+                redirect = '/web#menu_id='+str(menu_id.id)
+            else:
+                redirect = '/ln/dashboard'
+            return request.redirect(redirect)
+        return response
       
       
 

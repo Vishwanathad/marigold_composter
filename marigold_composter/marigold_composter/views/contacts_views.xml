@@ -20,6 +20,12 @@
           <xpath expr="//page[@name='contact_addresses']/field/form/sheet/group/group/field[@name='mobile']" position="after">
             <field name= "no_homes" attrs="{'invisible': [('type','!=', 'other')]}"/>
           </xpath> 
+          <xpath expr = "//div[@name='button_box']" position="attributes">
+            <attribute name="invisible">True</attribute>
+          </xpath>
+          <xpath expr = "//div[@class='oe_chatter']" position="attributes">
+            <attribute name="invisible">True</attribute>
+          </xpath>
         </field>
     </record>
 

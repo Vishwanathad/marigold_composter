@@ -5,24 +5,24 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-2 text-center pt24 pb24 offset-lg-1">
-                            <span id = "span_no_of_homes_count" class="s_number display-5">0</span>
-                            <h5>No of House</h5>
+                            <span id = "span_no_of_homes_count" class="s_number display-5" style="color:#FFFFFF;">0</span>
+                            <h5>Households Covered Daily</h5>
                         </div>
                         <div class="col-lg-2 text-center pt24 pb24">
-                            <span id = "span_collected_waste_count" class="s_number display-5">0</span>
-                            <h5>Collected Waste</h5>
+                            <span id = "span_collected_waste_count" class="s_number display-5" style="color:#FFFFFF;">0</span>
+                            <h5>Tonnes of Recycled Waste Annually</h5>
                         </div>
                         <div class="col-lg-2 text-center pt24 pb24">
-                            <span id = "span_proceesed_compost_count" class="s_number display-5">0</span>
-                            <h5>Compost</h5>
+                            <span id = "span_proceesed_compost_count" class="s_number display-5" style="color:#FFFFFF;">0</span>
+                            <h5>Tonnes of Compost</h5>
                         </div>
                         <div class="col-lg-2 text-center pt24 pb24">
-                            <span id = "span_proceesed_cocopeat_count" class="s_number display-5">0</span>
-                            <h5>Processed Cocopeat</h5>
+                            <span id = "span_proceesed_cocopeat_count" class="s_number display-5" style="color:#FFFFFF;">0</span>
+                            <h5>Tonnes of Processed Cocopeat</h5>
                         </div>
                         <div class="col-lg-2 text-center pt24 pb24">
-                            <span id = "span_sieved_compost_count" class="s_number display-5">0</span>
-                            <h5>Sieved Compost</h5>
+                            <span id = "span_sieved_compost_count" class="s_number display-5" style="color:#FFFFFF;">0</span>
+                            <h5>Tonnes of Sieved Compost</h5>
                         </div>
                     </div>
                 </div>
