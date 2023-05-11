@@ -1,0 +1,11 @@
+a[data-menu-xmlid="account.menu_finance"] {
+    display: none;
+}
+
+a[data-menu-xmlid="base.menu_management"] {
+    display: none;
+}
+
+a[data-menu-xmlid="utm.menu_link_tracker_root"] {
+    display: none;
+}

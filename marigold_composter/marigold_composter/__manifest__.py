@@ -31,7 +31,11 @@
     'assets': { 
         'web.assets_frontend': [
             'marigold_composter/static/js/snippets.js'
-        ]},
+        ],
+        'web.assets_backend' : [
+            'marigold_composter/static/scss/web_assets_backend.css'
+        ],
+        },
     
     # only loaded in demonstration mode
     'demo': [

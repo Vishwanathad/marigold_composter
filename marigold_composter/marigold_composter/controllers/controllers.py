@@ -38,12 +38,21 @@ class WebsiteSnippet(http.Controller):
           sieved_compost = 0
       else:
           sieved_compost = math.ceil(sieved_compost/1000)
+      if collected_waste is None:
+          collected_waste = 0
+      else:
+          collected_waste = math.ceil(collected_waste/1000)
+      if no_of_homes is None:
+          no_of_homes = 0
+      else:
+          no_of_homes = f'{Decimal(str(no_of_homes)):n}'
+          
       return   {
-        "collected_waste" : math.ceil(collected_waste/1000),
+        "collected_waste" : collected_waste,
         "proceesed_cocopeat" : proceesed_cocopeat,
         "proceesed_compost" : proceesed_compost,
         "sieved_compost" : sieved_compost,
-        "no_of_homes": f'{Decimal(str(no_of_homes)):n}'
+        "no_of_homes": no_of_homes
       }
       
 class MarigoldRedirectAfterLoginController(Website):

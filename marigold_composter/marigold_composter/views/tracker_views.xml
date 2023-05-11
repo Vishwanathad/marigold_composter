@@ -91,7 +91,7 @@
     </record>
 
     <record id="sale.sale_menu_root" model="ir.ui.menu">
-        <field name="name">Trackers</field>
+        <field name="name">Tracker</field>
     </record>
 
     <record id="sale.action_quotations_with_onboarding" model="ir.actions.act_window">
@@ -161,7 +161,7 @@
         <field name="inherit_id" ref="sale.view_sale_order_graph"/>
         <field name="arch" type="xml">
           <xpath expr = "//graph[@sample='1']" position="attributes">
-            <attribute name ="string">Trackers</attribute>             
+            <attribute name ="string">Tracker</attribute>             
           </xpath>
         </field>
     </record>
@@ -215,6 +215,7 @@
     <delete model="ir.ui.menu" id="sale_management.sale_order_template_menu"/>
 
     <delete model="ir.ui.menu" id="mail.menu_root_discuss"/>
+
 
     <!-- <delete model="ir.ui.menu" id="account.menu_finance"/>
 
