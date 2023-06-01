@@ -32,6 +32,6 @@
     <record id="contacts.menu_contacts" model="ir.ui.menu">
         <field name="name">Company</field>
     </record>
- 
+
   </data>
 </odoo>

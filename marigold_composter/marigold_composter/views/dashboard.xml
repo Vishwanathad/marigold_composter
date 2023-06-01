@@ -1,0 +1,152 @@
+<odoo>
+	<data>
+		<template id="marigold_dashboard" name ="marigold dashboard">
+			<title>
+				Dashboard
+			</title>
+			<t t-call="website.layout">
+				<div class="oe_structure">
+				</div>
+				<div class="container-sm">
+					<div class="row mx-3 my-3 ">
+						<div class="col">
+							<div class="card shadow-sm bg-dark p-1">
+								<h5 class="text-warning text-center mt-2 fw-bold">
+									Households Covered Daily
+								</h5>
+								<h1 class="text-center text-light mt-3">
+									<t t-esc="no_of_homes" />
+								</h1>
+							</div>
+							<!--
+							<div class="text-center mt-3 ">
+							<a href="/ln/assessment/status?q=wol" class="btn-survey-start btn-sm-padding text-info">
+							View Details
+							</a>
+							</div>
+							-->
+						</div>
+						<div class="col">
+							<div class="card shadow-sm bg-dark p-1">
+								<h5 class="text-warning text-center mt-2 fw-bold">
+									Tons of Recycled Waste Annually
+								</h5>
+								<h1 class="text-center text-light mt-3">
+									<t t-esc="collected_waste" />
+								</h1>
+							</div>
+							<!--
+							<div class="text-center mt-3">
+							<a href="/ln/assessment/status?q=cas" class="btn-survey-start btn-sm-padding text-info">
+							View Details
+							</a>
+							</div>
+							-->
+						</div>
+						<div class="col">
+							<div class="card shadow-sm bg-dark p-1">
+								<h5 class="text-warning text-center mt-2 fw-bold">
+									Tons of Compost Annually
+								</h5>
+								<h1 class="text-center text-light mt-3">
+									<t t-esc="proceesed_compost" />
+								</h1>
+							</div>
+							<!--
+							<div class="text-center mt-3">
+							<a href="/ln/assessment/status?q=wolpp" class="btn-survey-start btn-sm-padding text-info">
+							View Details
+							</a>
+							</div>
+							-->
+						</div>
+						<div class="col">
+							<div class="card shadow-sm bg-dark p-1">
+								<h5 class="text-warning text-center mt-2 fw-bold">
+									Tons of Processed Cocopeat Annually
+								</h5>
+								<h1 class="text-center text-light mt-3">
+									<t t-esc="proceesed_cocopeat" />
+								</h1>
+							</div>
+							<!--
+							<div class="text-center mt-3">
+							<a class="btn-survey-start btn-sm-padding text-info" href="/ln/assessment/all">
+							View Details
+							</a>
+							</div>
+							-->
+						</div>
+						<div class="col">
+							<div class="card shadow-sm bg-dark p-1">
+								<h5 class="text-warning text-center mt-2 fw-bold">
+									Tons of Sieved Compost Annually
+								</h5>
+								<h1 class="text-center text-light  mt-3 ">
+									<t t-esc="sieved_compost" />
+								</h1>
+							</div>
+							<!--
+							<div class="text-center mt-3">
+							<a class="btn-survey-start btn-sm-padding text-info" href="/ln/assessment/all" >
+							View Details
+							</a>
+							</div>
+							-->
+						</div>
+					</div>
+				</div>
+				<t t-call="marigold_composter.bar_chart_widget" />
+				<!-- <t t-call="marigold_composter.company_status_bar_chart" />  -->
+			</t>
+		</template>
+		<template id="marigold_composter.bar_chart_widget">
+			<div class="o_bar_chart_widget marigold_bar_chart">
+				<div class="container">
+					<div class="row mb-3 p-0 mx-3">
+						<div class= "col-lg-6 d-flex">
+							<div class = "card shadow-sm bg-primary p-3 flex-fill">
+								<canvas id="o_bar_chart_dashboard_canvas"  width="200" height="200"></canvas>
+							</div>	
+						</div>
+						<div class= "col-lg-6 d-flex">
+							<div class = "card shadow-sm p-3 bg-primary flex-fill">
+								<table class="table" >
+									<thead>
+										<tr>
+											<th scope="col">Group Name</th>
+											<th scope="col">Waste Collected (T)</th>
+											<th scope="col">#Houses</th>
+										</tr>
+									</thead>
+									<tbody>
+										<t t-foreach="table_result" t-as="row">
+											<tr>
+												<td><t t-esc="row['company_name']"/></td>
+												<td><t t-esc="row['waste_in_tons']"/></td>
+												<td><t t-esc="row['homes']"/></td>
+											</tr>
+										</t>	
+									</tbody>	
+								</table>	
+							</div>	
+						</div>
+					</div>
+								
+					<!-- </div> -->
+				<!-- </div> -->
+				<!-- <div class="o_bar_chart_widget_template companies_bar_chart"> -->
+					<!-- <div class="container"> -->
+					<div class="row mb-3 mx-3">
+						<div class= "col-lg-12 mx-auto my-auto" >
+							<div class = "card shadow-sm bg-primary p-1">
+								<canvas id="o_bar_chart_canvas_company" ></canvas>
+							</div>
+						</div>				
+					</div>
+				</div>
+			</div>
+		</template>
+
+	</data>
+</odoo>

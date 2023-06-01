@@ -19,7 +19,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','account','sale','sale_management'],
+    'depends': ['base','account','sale','sale_management','web'],
 
     # always loaded
     'data': [
@@ -27,10 +27,16 @@
         'views/contacts_views.xml',
         'views/tracker_views.xml',
         'views/snippets.xml',
+        'views/dashboard.xml',
+        'views/menu_dashboard.xml',
     ],
     'assets': { 
         'web.assets_frontend': [
-            'marigold_composter/static/js/snippets.js'
+            'web/static/lib/Chart/Chart.js',
+            'marigold_composter/static/js/snippets.js',
+            'marigold_composter/static/js/dashboard.js',
+            # 'marigold_composter/static/js/barchart.js',
+            # 'marigold_composter/static/css/style_fronted.css'
         ],
         'web.assets_backend' : [
             'marigold_composter/static/scss/web_assets_backend.css'
